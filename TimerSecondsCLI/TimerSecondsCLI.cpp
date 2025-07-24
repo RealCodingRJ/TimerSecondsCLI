@@ -1,34 +1,68 @@
 #include <iostream>
 #include <Windows.h>
+#include <print>
 
 using namespace std;
 
-void sleepTimer(int a) {
+static void sleepTimer(int a) {
 
 	Sleep(a);
 }
 
-int main() {
+class SecondsTime {
+
+public:
+
+	void getSeconds() {
+
+		print("Hello World", nullptr, nullptr);
+	}
 
 
-	for (int i = 0; i > -1 ; i++) {
+};
 
-		sleepTimer(1000);
+class Time : SecondsTime {
 
-		if (i > 1) {
+public:
 
-			int seconds = i;
-			cout << "Seconds: " << seconds << endl;
-		
-		}
-	
-		else if (i == 25 * 60) {
+	int EndTime(int seconds) {
+
+
+		if (seconds == 25 * 60) {
 
 			Beep(523, 500);
 
 		}
 
+		return seconds;
+	}
 
+
+
+};
+
+int main() {
+
+
+	auto s = [](int seconds) {
+
+		return seconds;
+
+	};
+
+	Time time;
+
+	int j = 2;
+
+	while (j > 1) {
+
+		j += 1;
+
+		sleepTimer(1000);
+
+		Time* seconds = &time;
+
+		cout << "Seconds: " << seconds->EndTime(j) << endl;
 	}
 
 
